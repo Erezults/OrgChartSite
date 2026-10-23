@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>ניהול עץ ארגוני | Admin Panel</title>
+    <meta name="description" content="ניהול מערכת עץ ארגוני - Admin Panel by E-REZults" />
+    <meta name="author" content="Erez Cohen - E-REZults" />
+    
+    <!-- Favicon - Admin specific -->
+    <link rel="icon" href="/admin-icon-192.png" type="image/png" />
+    
+    <!-- PWA Manifest - Admin specific -->
+    <link rel="manifest" href="/admin-manifest.json" />
+    <link rel="apple-touch-icon" href="/admin-icon-192.png" />
+    
+    <!-- PWA Meta Tags - Admin specific -->
+    <meta name="theme-color" content="#0a1628" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Admin Panel" />
+    
+    <!-- Open Graph - Admin -->
+    <meta property="og:title" content="ניהול עץ ארגוני | Admin Panel" />
+    <meta property="og:description" content="ניהול מערכת עץ ארגוני - Admin Panel" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/admin-icon-512.png" />
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: hsl(210 59% 10%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        font-family: system-ui, -apple-system, sans-serif;
+      }
+      .loader {
+        text-align: center;
+        color: hsl(0 0% 100%);
+      }
+      .spinner {
+        width: 40px;
+        height: 40px;
+        border: 3px solid hsl(0 0% 100% / 0.25);
+        border-top-color: hsl(0 0% 100%);
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin: 0 auto 16px;
+      }
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="loader" style="max-width: 560px; padding: 24px;">
+      <div class="spinner" aria-hidden="true"></div>
+      <h1 style="margin: 0 0 12px; font-size: 22px; font-weight: 700;">התקנת Admin Panel</h1>
+      <p style="margin: 0 0 16px; opacity: 0.9; line-height: 1.5;">
+        כדי להתקין אפליקציית אדמין נפרדת במסך הבית באייפון (במקביל ל-PWA הראשי):
+      </p>
+      <ol style="text-align: right; margin: 0 0 16px; padding-right: 18px; line-height: 1.7; opacity: 0.95;">
+        <li>פתח את הדף הזה ב-Safari (לא מתוך ה-PWA הקיים).</li>
+        <li>לחץ Share → Add to Home Screen.</li>
+      </ol>
+      <p style="margin: 0 0 8px; opacity: 0.9;">
+        מומלץ להשתמש בדף ההתקנה החדש (מתחת לנתיב האדמין) כדי למנוע התערבות של ה-Service Worker:
+      </p>
+      <p style="margin: 0 0 16px;">
+        <a href="/admin-ctrl-erezults/ctrl-mgmt-x7.html" style="color: hsl(0 0% 100%); text-decoration: underline;">פתח דף התקנת אדמין</a>
+      </p>
+      <p style="margin: 0;">
+        <a href="/admin-ctrl-erezults/login?source=pwa" style="color: hsl(0 0% 100%); text-decoration: underline;">פתח את מסך האדמין עכשיו</a>
+      </p>
+    </main>
+
+    <script>
+      // Unregister ALL service workers to prevent interference with the admin PWA
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+          for (var i = 0; i < registrations.length; i++) {
+            registrations[i].unregister();
+          }
+        });
+      }
+
+      // Only auto-redirect when running as an installed app.
+      var isStandalone = false;
+      try {
+        isStandalone =
+          (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) ||
+          (window.navigator && window.navigator.standalone === true);
+      } catch (e) {}
+
+      if (isStandalone) {
+        window.location.replace('/admin-ctrl-erezults/login?source=pwa');
+      }
+    </script>
+  </body>
+</html>

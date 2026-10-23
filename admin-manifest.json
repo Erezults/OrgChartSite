@@ -1,0 +1,32 @@
+{
+  "name": "ניהול עץ ארגוני - Admin Panel",
+  "short_name": "Admin Panel",
+  "description": "ניהול מערכת עץ ארגוני",
+  "theme_color": "#0a1628",
+  "background_color": "#0a1628",
+  "display": "standalone",
+  "orientation": "portrait",
+  "start_url": "/admin-ctrl-erezults/login?source=pwa",
+  "scope": "/",
+  "id": "/admin-panel-v2",
+  "icons": [
+    {
+      "src": "/admin-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/admin-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/admin-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

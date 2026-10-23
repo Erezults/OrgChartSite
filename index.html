@@ -1,1 +1,61 @@
-<!doctype html><html lang="he" dir="rtl"><head><meta charset="utf-8"><title>OrgChart</title></head><body><p>OrgChart — בקרוב</p></body></html>
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>מחולל עץ ארגוני | Org Chart Generator</title>
+    <meta name="description" content="מחולל עץ ארגוני מקצועי - Professional Org Chart Generator by E-REZults" />
+    <meta name="author" content="Erez Cohen - E-REZults" />
+    
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.png" type="image/png" />
+    
+    <!-- PWA Manifest - set dynamically based on path before React loads -->
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="/pwa-icon-192.png" />
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#1e3a5f" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Org Chart" />
+    
+    <!-- Inline script to set correct manifest/icons BEFORE page renders (critical for iOS PWA install) -->
+    <script>
+      (function() {
+        var isAdmin = window.location.pathname.indexOf('/admin-ctrl-erezults') === 0;
+        if (isAdmin) {
+          // Update manifest link
+          var manifest = document.querySelector('link[rel="manifest"]');
+          if (manifest) manifest.href = '/admin-manifest.json';
+          // Update apple-touch-icon
+          var appleIcon = document.querySelector('link[rel="apple-touch-icon"]');
+          if (appleIcon) appleIcon.href = '/admin-icon-192.png';
+          // Update theme-color
+          var theme = document.querySelector('meta[name="theme-color"]');
+          if (theme) theme.content = '#0a1628';
+          // Update apple-mobile-web-app-title
+          var title = document.querySelector('meta[name="apple-mobile-web-app-title"]');
+          if (title) title.content = 'Admin';
+        }
+      })();
+    </script>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="מחולל עץ ארגוני | Org Chart Generator" />
+    <meta property="og:description" content="מחולל עץ ארגוני מקצועי - Professional Org Chart Generator" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/pwa-icon-512.png" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="מחולל עץ ארגוני | Org Chart Generator" />
+    <meta name="twitter:image" content="/pwa-icon-512.png" />
+    <script type="module" crossorigin src="/assets/index-MAc3psqn.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-CtzpxZ0a.css">
+  <link rel="manifest" href="/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/registerSW.js"></script></head>
+
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
