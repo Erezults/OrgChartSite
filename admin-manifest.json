@@ -6,7 +6,7 @@
   "background_color": "#0a1628",
   "display": "standalone",
   "orientation": "portrait",
-  "start_url": "/admin-ctrl-erezults/login?source=pwa",
+  "start_url": "/admin-ctrl-orgchart/login?source=pwa",
   "scope": "/",
   "id": "/admin-panel-v2",
   "icons": [
